@@ -1,6 +1,7 @@
 public class IntArrayWorker {
 	/** two dimensional matrix */
 	private int[][] matrix = null;
+	int count = 0;
 
 	/**
 	 * set the matrix to the passed one
@@ -83,6 +84,51 @@ public class IntArrayWorker {
 					matrix[row][col] = 3;
 			}
 		}
+	}
+
+	public int getCount(int times)
+	{
+		for (int rep = 0; rep < times; rep++)
+		{
+			for (int row = 0; row < matrix.length; row++)
+			{
+				for (int col = 0; col < matrix[0].length; col++)
+				{
+					count = count + matrix[row][col];
+					return count;
+				}
+			}
+		}
+		return count;
+	}
+
+	public int getLargest()
+	{
+		int largest = matrix[0][0];
+
+		for (int row = 0; row < matrix.length; row++)
+		{
+			for (int col = 0; col < matrix[0].length; col++)
+			{
+				if (largest < matrix[row][col])
+					{
+						largest = matrix[row][col];
+					}
+			}
+		}
+		return largest;
+	}
+
+	public int getColTotal(int col)
+	{
+		int total = 0;
+
+		for (int row = 0; row < matrix.length; row++)
+		{	
+				total += matrix[row][col];
+		}
+	
+		return total;
 	}
 
 }
