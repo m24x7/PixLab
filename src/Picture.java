@@ -296,4 +296,18 @@ public class Picture extends SimplePicture {
 			}
 		}
 	}
+
+	public void mirrorDiagnol() {
+		Pixel[][] pixels = this.getPixels2D();
+		Pixel topPixel = null;
+		Pixel bottomPixel = null;
+		int width = pixels.length;
+		for (int row = 0; row < pixels.length; row++) {
+			for (int col = 0; col < width / 2; col++) {
+				topPixel = pixels[col][row];
+				bottomPixel = pixels[row][col];
+				topPixel.setColor(bottomPixel.getColor());
+			}
+		}
+	}
 } // this } is the end of class Picture, put all new methods before this
