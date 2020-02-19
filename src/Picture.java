@@ -283,4 +283,17 @@ public class Picture extends SimplePicture {
 		}
 	}
 
+	public void mirrorHorizonalBotToTop() {
+		Pixel[][] pixels = this.getPixels2D();
+		Pixel topPixel = null;
+		Pixel bottomPixel = null;
+		int hight = pixels.length;
+		for (int row = 0; row < hight / 2; row++) {
+			for (int col = 0; col < pixels[0].length; col++) {
+				topPixel = pixels[row][col];
+				bottomPixel = pixels[hight - 1 - row][col];
+				topPixel.setColor(bottomPixel.getColor());
+			}
+		}
+	}
 } // this } is the end of class Picture, put all new methods before this
