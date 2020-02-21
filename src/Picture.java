@@ -297,6 +297,7 @@ public class Picture extends SimplePicture {
 		}
 	}
 
+	//normal
 	public void mirrorDiagnol() {
 		Pixel[][] pixels = this.getPixels2D();
 		Pixel topPixel = null;
@@ -307,6 +308,27 @@ public class Picture extends SimplePicture {
 				topPixel = pixels[row][col];
 				bottomPixel = pixels[col][row];
 				topPixel.setColor(bottomPixel.getColor());
+			}
+		}
+	}
+
+	//try catch loop
+	public void mirrorDiagnolTryCatchLoopVer()
+	{
+		Pixel[][] pixels = this.getPixels2D();
+		Pixel topPixel = null;
+		Pixel bottomPixel = null;
+		int hight = pixels.length;
+		int width = pixels[0].length;
+		for (int row = 0; row < hight; row++) {
+			for (int col = 0; col < width; col++) {
+				try{
+					topPixel = pixels[row][col];
+					bottomPixel = pixels[col][row];
+					topPixel.setColor(bottomPixel.getColor());
+				}	
+				catch (Exception e){}
+				
 			}
 		}
 	}
