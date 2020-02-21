@@ -318,9 +318,9 @@ public class Picture extends SimplePicture {
 		Pixel[][] pixels = this.getPixels2D();
 		Pixel topPixel = null;
 		Pixel bottomPixel = null;
-		int hight = pixels.length;
+		int height = pixels.length;
 		int width = pixels[0].length;
-		for (int row = 0; row < hight; row++) {
+		for (int row = 0; row < height; row++) {
 			for (int col = 0; col < width; col++) {
 				try{
 					topPixel = pixels[row][col];
