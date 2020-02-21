@@ -135,6 +135,7 @@ public class Picture extends SimplePicture {
 		System.out.println(count);
 	}
 
+
 	/**
 	 * copy from the passed fromPic to the specified startRow and startCol in
 	 * the current picture
@@ -333,5 +334,25 @@ public class Picture extends SimplePicture {
 				
 			}
 		}
+	}
+
+	public void mirrorArms() {
+		int mirrorPoint = 276;
+		Pixel leftPixel = null;
+		Pixel rightPixel = null;
+		Pixel[][] pixels = this.getPixels2D();
+
+		// loop through the rows
+		for (int row = 27; row < 97; row++) {
+			// loop from 13 to just before the mirror point
+			for (int col = 13; col < mirrorPoint; col++) {
+
+				leftPixel = pixels[row][col];
+				rightPixel = pixels[row][mirrorPoint - col + mirrorPoint];
+				rightPixel.setColor(leftPixel.getColor());
+				
+			}
+		}
+		System.out.println(count);
 	}
 } // this } is the end of class Picture, put all new methods before this
