@@ -337,22 +337,26 @@ public class Picture extends SimplePicture {
 	}
 
 	public void mirrorArms() {
-		int mirrorPoint = 276;
+		int mirrorPoint = 194;
 		Pixel leftPixel = null;
 		Pixel rightPixel = null;
 		Pixel[][] pixels = this.getPixels2D();
 
 		// loop through the rows
-		for (int row = 27; row < 97; row++) {
+		for (int row = 163; row < mirrorPoint; row++) {
 			// loop from 13 to just before the mirror point
-			for (int col = 13; col < mirrorPoint; col++) {
-
-				leftPixel = pixels[row][col];
-				rightPixel = pixels[row][mirrorPoint - col + mirrorPoint];
+			for (int col = 105; col < 293; col++) {
+				try {
+					leftPixel = pixels[row][col];
+				rightPixel = pixels[mirrorPoint - row + mirrorPoint][col];
 				rightPixel.setColor(leftPixel.getColor());
+				} catch (Exception e) {
+					//TODO: handle exception
+				}
+				
+				
 				
 			}
 		}
-		System.out.println(count);
 	}
 } // this } is the end of class Picture, put all new methods before this
