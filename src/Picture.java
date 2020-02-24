@@ -359,4 +359,21 @@ public class Picture extends SimplePicture {
 			}
 		}
 	}
+
+	public void mirrorGull() {
+		int mirrorPoint = 343;
+		Pixel leftPixel = null;
+		Pixel rightPixel = null;
+		Pixel[][] pixels = this.getPixels2D();
+
+		for (int row = 234; row < 319; row++) {
+			for (int col = 237; col < mirrorPoint; col++) {				
+				try {
+					leftPixel = pixels[row][col];
+					rightPixel = pixels[row][mirrorPoint - col + mirrorPoint + 2];
+					rightPixel.setColor(leftPixel.getColor());
+				} catch (Exception e) {}
+			}
+		}
+	}
 } // this } is the end of class Picture, put all new methods before this

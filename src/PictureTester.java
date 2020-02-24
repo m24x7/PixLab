@@ -128,6 +128,14 @@ public class PictureTester
     snowman.mirrorArms();;
     snowman.explore();
   }
+
+  public static void testMirrorGull()
+  {
+    Picture seagull = new Picture("seagull.jpg");
+    seagull.explore();
+    seagull.mirrorGull();
+    seagull.explore();
+  }
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -149,8 +157,8 @@ public class PictureTester
     //testMirrorDiagnol();
     //testMirrorDiagnolTryCatchLoop();
     //testMirrorTemple();
-    testMirrorArms();
-    //testMirrorGull();
+    //testMirrorArms();
+    testMirrorGull();
     //testCollage();
     //testCopy();
     //testEdgeDetection();
