@@ -376,15 +376,15 @@ public class Picture extends SimplePicture {
 			}
 		}
 	}
-
-	public void copy(Picture fromPic, int startRow, int fromStartRow, int fromEndRow, int startCol,int fromStartCol, int fromEndCol) {
+	
+	public void copy(Picture fromPic, int startRow, int startCol, int fromStartRow, int fromEndRow, int fromStartCol, int fromEndCol) {
 		Pixel fromPixel = null;
 		Pixel toPixel = null;
 		Pixel[][] toPixels = this.getPixels2D();
 		Pixel[][] fromPixels = fromPic.getPixels2D();
-		for (int toRow = startRow; fromStartRow < fromEndRow
+		for (int fromRow = fromStartRow, toRow = startRow; fromRow < fromEndRow
 				&& toRow < toPixels.length; fromRow++, toRow++) {
-			for (int fromCol = 0, toCol = startCol; fromCol < endCol
+			for (int fromCol = fromStartCol, toCol = startCol; fromCol < fromEndCol
 					&& toCol < toPixels[0].length; fromCol++, toCol++) {
 				fromPixel = fromPixels[fromRow][fromCol];
 				toPixel = toPixels[toRow][toCol];
@@ -393,4 +393,16 @@ public class Picture extends SimplePicture {
 		}
 	}
 
+	public void createMyCollage(Picture pic1, Picture pic2, int pic1StartRow, int pic1EndRow, int pic1StartCol, int pic1EndCol, int pic2StartRow, int pic2EndRow, int pic2StartCol, int pic2EndCol) {
+		this.copy(pic1, 0, 0, pic1StartRow, pic1EndRow, pic1StartCol, pic1EndCol);
+		this.copy(pic2, 100, 0, pic2StartRow, pic2EndRow, pic2StartCol, pic2EndCol);
+		this.copy(pic1, 200, 0, pic1StartRow, pic1EndRow, pic1StartCol, pic1EndCol);
+		Picture picNoBlue = new Picture(pic2);
+		picNoBlue.zeroBlue();
+		this.copy(picNoBlue, 300, 0, pic2StartRow, pic2EndRow, pic2StartCol, pic2EndCol);
+		this.copy(pic1, 400, 0, pic1StartRow, pic1EndRow, pic1StartCol, pic1EndCol);
+		this.copy(pic2, 500, 0, pic2StartRow, pic2EndRow, pic2StartCol, pic2EndCol);
+		this.mirrorVertical();
+		this.write("collage.jpg");
+	}
 } // this } is the end of class Picture, put all new methods before this

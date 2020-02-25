@@ -142,8 +142,19 @@ public class PictureTester
     Picture canvas = new Picture("640x480.jpg");
     Picture seagull = new Picture("seagull.jpg");
     canvas.explore();
-    canvas.copy(seagull, 100, 400, 100, 400);
+    canvas.copy(seagull, 100, 100, 200, 300, 200, 300);
     canvas.explore();
+  }
+
+  public static void testMyCollage()
+  {
+    Picture canvas = new Picture("640x480.jpg");
+    Picture seagull = new Picture("seagull.jpg");
+    Picture beach = new Picture("beach.jpg");
+    canvas.explore();
+    canvas.createMyCollage(seagull, beach, 200, 400, 200, 400, 200, 400, 200, 400);
+    canvas.explore();
+
   }
   /** Main method for testing.  Every class can have a main
     * method in Java */
@@ -169,7 +180,8 @@ public class PictureTester
     //testMirrorArms();
     //testMirrorGull();
     //testCollage();
-    testCopy();
+    //testCopy();
+    testMyCollage();
     //testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();
