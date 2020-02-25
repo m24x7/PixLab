@@ -136,6 +136,15 @@ public class PictureTester
     seagull.mirrorGull();
     seagull.explore();
   }
+
+  public static void testCopy()
+  {
+    Picture canvas = new Picture("640x480.jpg");
+    Picture seagull = new Picture("seagull.jpg");
+    canvas.explore();
+    canvas.copy(seagull, 100, 400, 100, 400);
+    canvas.explore();
+  }
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -158,9 +167,9 @@ public class PictureTester
     //testMirrorDiagnolTryCatchLoop();
     //testMirrorTemple();
     //testMirrorArms();
-    testMirrorGull();
+    //testMirrorGull();
     //testCollage();
-    //testCopy();
+    testCopy();
     //testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();
