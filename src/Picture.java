@@ -185,7 +185,7 @@ public class Picture extends SimplePicture {
 	 * @param edgeDist
 	 *            the distance for finding edges
 	 */
-	public void edgeDetection(int edgeDist, int botedgeDist) {
+	public void edgeDetection(int edgeDist) {
 		Pixel leftPixel = null;
 		Pixel rightPixel = null;
 		Pixel topPixel = null;
@@ -202,7 +202,8 @@ public class Picture extends SimplePicture {
 				bottomPixel = pixels[row + 1][col];
 				rightColor = rightPixel.getColor();
 				bottomColor = bottomPixel.getColor();
-				if (leftPixel.colorDistance(rightColor) > edgeDist || topPixel.colorDistance(bottomColor) > botedgeDist)
+				if (leftPixel.colorDistance(rightColor) > edgeDist || 
+				topPixel.colorDistance(bottomColor) > edgeDist)
 					leftPixel.setColor(Color.BLACK);
 				else
 					leftPixel.setColor(Color.WHITE);
